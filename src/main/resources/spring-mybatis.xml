@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 引入jdbc.properties属性文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <context:component-scan base-package="com.nageu"/>
+
+    <!-- 配置数据源，使用的是alibaba的Druid(德鲁伊)数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${jdbc_url}" />
+        <property name="username" value="${jdbc_user}" />
+        <property name="password" value="${jdbc_password}" />
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="1" />
+        <property name="minIdle" value="1" />
+        <property name="maxActive" value="20" />
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000" />
+
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <property name="validationQuery" value="SELECT 'x'" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+
+        <property name="removeAbandoned" value="true" /> <!-- 打开removeAbandoned功能 -->
+        <property name="removeAbandonedTimeout" value="1800" /> <!-- 1800秒，也就是30分钟 -->
+        <property name="logAbandoned" value="true" /> <!-- 关闭abanded连接时输出错误日志 -->
+
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+        <!-- 配置数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描 Xml 文件位置 -->
+        <property name="mapperLocations" value="classpath:com/nageu/*/sql/*.xml"/>
+        <!-- 配置包别名 -->
+        <property name="typeAliasesPackage" value="com.nageu.base.bean,com.nageu.custom.bean"/>
+        <!-- 插件配置 -->
+        <property name="plugins">
+            <array>
+
+            </array>
+        </property>
+        <!-- MP 全局配置注入 -->
+        <property name="globalConfig" ref="globalConfig"/>
+    </bean>
+    <!-- 定义 MP 全局策略 -->
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
+        <!-- 主键策略配置 -->
+        <!-- 可选参数
+            AUTO->`0`("数据库ID自增")
+            INPUT->`1`(用户输入ID")
+            ID_WORKER->`2`("全局唯一ID")
+            UUID->`3`("全局唯一ID")
+        -->
+        <property name="idType" value="3"/>
+
+        <!-- 数据库类型配置 -->
+        <!-- 可选参数（默认mysql）
+            MYSQL->`mysql`
+            ORACLE->`oracle`
+            DB2->`db2`
+            H2->`h2`
+            HSQL->`hsql`
+            SQLITE->`sqlite`
+            POSTGRE->`postgresql`
+            SQLSERVER2005->`sqlserver2005`
+            SQLSERVER->`sqlserver`
+        -->
+        <!--<property name="dbType" value="oracle"/>-->
+
+        <!-- 全局表为下划线命名设置 true -->
+        <!--<property name="dbColumnUnderline" value="true"/>-->
+    </bean>
+    <!-- 配置扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.nageu.*.dao"/>
+    </bean>
+
+    <!-- 配置Spring的事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- 注解方式配置事物 -->
+    <tx:annotation-driven/>
+
+    <!-- 配置druid监控spring jdbc -->
+    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"/>
+    <bean id="druidStatPointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut"
+          scope="prototype">
+        <property name="patterns">
+            <list>
+                <value>cn.zachary.*.service.*</value>
+            </list>
+        </property>
+    </bean>
+    <aop:config>
+        <aop:pointcut id="druidStatPointcut" expression="bean(druidStatPointcut)"/>
+        <aop:advisor advice-ref="druid-stat-interceptor"
+                     pointcut-ref="druidStatPointcut" />
+    </aop:config>
+</beans>
