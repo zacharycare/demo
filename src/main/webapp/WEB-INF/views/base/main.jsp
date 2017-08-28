@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="custom/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="custom/css/manage/login.css">
+    <link rel="stylesheet" href="custom/css/manage/main.css">
 </head>
 <body>
     <div class="container">
