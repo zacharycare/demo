@@ -19,6 +19,14 @@
     <mvc:resources location="/plugins/" mapping="/plugins/**"/>
     <mvc:resources location="/custom/" mapping="/custom/**"/>
 
+    <!-- session拦截器， 控制登陆-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/manage/**"/>
+            <bean class="com.nageu.base.interceptor.SessionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />

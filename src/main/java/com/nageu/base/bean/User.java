@@ -10,7 +10,8 @@ public class User {
     private String username;
     private String password;
     private char gender;
-    private char state;
+    private String state;
     private String portrait;
     private String signature;
+    private String registerTime;
 }
