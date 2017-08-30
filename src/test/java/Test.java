@@ -33,6 +33,6 @@ public class Test {
 //        System.out.println("添加用户是否成功："+flag);
         List<Menu> list = menuService.selectList(null);
         TreeUtil treeUtil = new TreeUtil(list);
-        System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("1")));
+        System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("3").getChildren()));
     }
 }
