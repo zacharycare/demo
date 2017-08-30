@@ -1,14 +1,12 @@
 package com.nageu.base.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.nageu.base.bean.Result;
 import com.nageu.base.bean.User;
 import com.nageu.base.service.UserService;
 import com.nageu.base.util.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -37,12 +35,4 @@ public class AuthController extends BaseController {
         }
         return view;
     }
-
-    @RequestMapping(value = "manage/selectUsers")
-    @ResponseBody
-    public Result selectUsers(){
-        System.out.println("进入方法...");
-        return result("1001","success",123);
-    }
-
 }

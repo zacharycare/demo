@@ -25,8 +25,11 @@
     <link rel="stylesheet" href="custom/css/manage/main.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
+        <a class="navbar-brand" href="#">admin</a>
+    </nav>
     <div class="container">
-        这是管理平台主页
+        asdasd
     </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

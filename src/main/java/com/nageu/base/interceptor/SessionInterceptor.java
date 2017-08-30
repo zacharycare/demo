@@ -10,6 +10,11 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         System.out.println(httpServletRequest.getServletPath());
+        System.out.println(httpServletRequest.getContextPath());
+        Object user = httpServletRequest.getSession().getAttribute("SUS");
+        if (user == null){
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/u/login");
+        }
         return true;
     }
 
