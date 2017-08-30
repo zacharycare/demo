@@ -13,5 +13,5 @@ public class User {
     private String state;
     private String portrait;
     private String signature;
-    private String registerTime;
+    private String createTime;
 }
