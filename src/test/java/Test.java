@@ -22,15 +22,15 @@ public class Test {
 
     @org.junit.Test
     public void test(){
-//        userService.selectList(new EntityWrapper<User>().eq("username","your name"));
-//        System.out.println(userService.selectList(new EntityWrapper<User>().eq("username","admin")));
-//        System.out.println("123");
-//        User user = new User();
-//        user.setUsername("再试一下");
-//        user.setPassword("ohh");
-//        user.setGender('女');
-//        boolean flag = userService.insert(user);
-//        System.out.println("添加用户是否成功："+flag);
+        userService.selectList(new EntityWrapper<User>().eq("username","your name"));
+        System.out.println(userService.selectList(new EntityWrapper<User>().eq("username","admin")));
+        System.out.println("123");
+        User user = new User();
+        user.setUsername("再试一下");
+        user.setPassword("ohh");
+        user.setGender('女');
+        boolean flag = userService.insert(user);
+        System.out.println("添加用户是否成功："+flag);
         List<Menu> list = menuService.selectList(null);
         TreeUtil treeUtil = new TreeUtil(list);
         System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("3").getChildren()));

@@ -19,9 +19,4 @@ public class UserController {
         System.out.println("111");
         return map;
     }
-
-    @RequestMapping(value = "main")
-    public String toMainPage(){
-        return "base/main";
-    }
 }

@@ -26,14 +26,14 @@
 </head>
 <body>
     <div class="container">
-        <form class="form-signin" method="post" action="/u/login">
+        <form class="form-signin" method="post" action="u/login">
             <h2 class="form-signin-heading">Please sign in</h2>
             <span>${msg}</span>
-            <input name="account" class="form-control" placeholder="Account" required autofocus>
+            <input name="account" class="form-control" value="${cookie.nc.value}" placeholder="Account" required autofocus>
             <input type="password" name="password" class="form-control" placeholder="Password" required>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="remember-me"> Remember me
+                    <input type="checkbox" name="remember" value="remember-me" ${not empty cookie.nc ? "checked" : ""}> Remember me
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block">Sign in</button>
