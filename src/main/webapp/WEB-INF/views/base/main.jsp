@@ -51,13 +51,16 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
             </form>
         </div>
     </nav>
-    <div class="container">
-        asdasd
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">menu</div>
+            <div class="col-8">content</div>
+        </div>
     </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
