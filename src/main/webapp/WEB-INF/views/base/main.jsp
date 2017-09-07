@@ -58,8 +58,14 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4">menu</div>
-            <div class="col-8">content</div>
+            <div class="col-2">
+                <ul>
+                    <li><a href="javascript:void(0);">新增菜单</a></li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <iframe id="main" src="manage/menu/toEditPage"></iframe>
+            </div>
         </div>
     </div>
 <!-- Optional JavaScript -->

@@ -28,7 +28,6 @@ public class Test {
         User user = new User();
         user.setUsername("再试一下");
         user.setPassword("ohh");
-        user.setGender('女');
         boolean flag = userService.insert(user);
         System.out.println("添加用户是否成功："+flag);
         List<Menu> list = menuService.selectList(null);
