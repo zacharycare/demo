@@ -13,12 +13,13 @@ import java.util.List;
 public class Menu implements Serializable {
     private String id;
     private String pid;
+    private int level;
     private String name;
     private String url;
     private String icon;
     private int sort;
-    private String createId;
-    private String createTime;
+    private String create_id;
+    private String create_time;
     private String description;
     @TableField(exist = false)
     private List<Menu> children = new ArrayList<>();

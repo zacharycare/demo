@@ -9,8 +9,8 @@ public class User {
     private String id;
     private String username;
     private String password;
-    private char gender;
     private String state;
     private String portrait;
-    private String createTime;
+    private String create_time;
+    private String create_id;
 }
