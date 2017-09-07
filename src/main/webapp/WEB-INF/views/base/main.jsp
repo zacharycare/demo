@@ -63,8 +63,8 @@
                     <li><a href="javascript:void(0);">新增菜单</a></li>
                 </ul>
             </div>
-            <div class="col-10">
-                <iframe id="main" src="manage/menu/toEditPage"></iframe>
+            <div class="col-10 pr-0">
+                <iframe id="main" src="manage/menu/toEditPage" width="100%" height="98%" frameborder="0"></iframe>
             </div>
         </div>
     </div>

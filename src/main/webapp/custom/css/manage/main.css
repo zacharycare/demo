@@ -1,0 +1,4 @@
+/*html{height: calc(100% - 56px)}*/
+/*body,.container-fluid,.row{height: 100%}*/
+html,body,.row{height: 100%}
+.container-fluid{height: calc(100% - 56px)}
