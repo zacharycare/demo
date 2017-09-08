@@ -64,7 +64,8 @@
                 </ul>
             </div>
             <div class="col-10 pr-0">
-                <iframe id="main" src="manage/menu/toEditPage" width="100%" height="98%" frameborder="0"></iframe>
+                <!-- class="d-block"即display:block 解决iframe height="100%"时body出现滚动条 -->
+                <iframe id="main" src="manage/menu/toEditPage" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
             </div>
         </div>
     </div>
