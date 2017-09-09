@@ -13,6 +13,7 @@ public class SessionInterceptor implements HandlerInterceptor {
         Object user = httpServletRequest.getSession().getAttribute("SUS");
         if (user == null){
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/u/login");
+            return false;
         }
         return true;
     }

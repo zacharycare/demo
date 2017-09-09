@@ -34,6 +34,7 @@ public class AuthController extends BaseController {
                 view.addObject("msg","您的账户异常");
             } else {    //登录
                 session.setAttribute("SUS",user);
+                System.out.println("session id : "+session.getId());
                 if ("remember-me".equals(remember)){
                     Cookie cookie = new Cookie("nc",account);
                     cookie.setMaxAge(3600);
@@ -53,5 +54,17 @@ public class AuthController extends BaseController {
     public ModelAndView toMainPage(){
         ModelAndView view = new ModelAndView("base/main");
         return view;
+    }
+
+    /**
+     * @apiNote 后台用户注销
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "manage/logout")
+    public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        request.getSession().invalidate();
+        response.sendRedirect(request.getContextPath()+"/u/login");
     }
 }
