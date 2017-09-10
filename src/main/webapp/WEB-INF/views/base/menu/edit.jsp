@@ -23,9 +23,40 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
 </head>
 <body>
-这是编辑菜单页<button class="btn btn-danger">点击</button>
-<div style="border: 1px solid red;width: 300px;height: 200px;">
-    <iframe width="100%" height="100%" src="/"></iframe>
+这是编辑菜单页1<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页2<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页3<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页4<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页5<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页6<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页7<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页8<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页9<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页10<button class="btn btn-danger">点击</button><br>
+<div class="visible">visible</div>
+<div class="invisible">invisible</div>
+这是编辑菜单页11<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页12<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页13<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页14<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页15<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页16<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页17<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页18<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页19<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页20<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页21<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页22<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页23<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页24<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页25<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页26<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页27<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页28<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页29<button class="btn btn-danger">点击</button><br>
+这是编辑菜单页30<button class="btn btn-danger">点击</button><br>
+<div class="d-none d-lg-block">
+    试一下class
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

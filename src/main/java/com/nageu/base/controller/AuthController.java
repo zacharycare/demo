@@ -60,7 +60,6 @@ public class AuthController extends BaseController {
      * @apiNote 后台用户注销
      * @param request
      * @param response
-     * @return
      */
     @RequestMapping(value = "manage/logout")
     public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
