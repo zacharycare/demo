@@ -52,19 +52,20 @@
             <!-- 左侧菜单栏 -->
             <div class="col-4 col-sm-3 col-lg-2 d-none d-sm-block" id="leftmenu">
                 <ul>
-                    <li><a href="javascript:void(0);">新增菜单</a></li>
+                    <li><a href="manage/menu/toEditPage">新增菜单</a></li>
+                    <li><a href="javascript:void(0);">新增用户</a></li>
                 </ul>
             </div>
             <!-- 右侧iframe -->
             <div class="col-12 col-sm-9 col-lg-10 pr-0" id="right">
                 <!-- class="d-block"即display:block 解决iframe height="100%"时body出现滚动条 -->
-                <iframe id="main" src="manage/menu/toEditPage" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
+                <iframe id="main" src="manage/welcome" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
             </div>
         </div>
     </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script>
@@ -89,6 +90,24 @@
             }
         }
     }
+
+    $(document).ready(function(){
+        $("#leftmenu").find("a").click(function(){
+            var href = this.href;
+            $.post('isExpire',{},function (data,status) {
+                console.log("验证session过期");
+                console.log(data);
+                console.log(status);
+                if (data.code == "1") {     //过期
+                    alert("登录已过期");
+                    window.location.href = data.obj;
+                } else {
+                    document.getElementById('main').src = href;
+                }
+            },'json');
+            return false;
+        })
+    })
 </script>
 </body>
 </html>

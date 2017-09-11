@@ -1,12 +1,16 @@
 package com.nageu.base.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.nageu.base.bean.Result;
 import com.nageu.base.bean.User;
 import com.nageu.base.service.UserService;
+import com.nageu.base.util.Constants;
 import com.nageu.base.util.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -65,5 +69,32 @@ public class AuthController extends BaseController {
     public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
         request.getSession().invalidate();
         response.sendRedirect(request.getContextPath()+"/u/login");
+    }
+
+    /**
+     * @apiNote 前往欢迎页
+     * @return
+     */
+    @RequestMapping(value = "manage/welcome")
+    public ModelAndView toWelcomePage(){
+        ModelAndView view = new ModelAndView("base/welcome");
+        return view;
+    }
+
+    /**
+     * @apiNote 判断用户session是否过期
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "isExpire")
+    @ResponseBody
+    public Result sessionExpire(HttpServletRequest request){
+        Object object = request.getSession().getAttribute("SUS");
+        if (object == null){    //过期
+            result(Constants.FAILURE_CODE,Constants.FAILURE_MSG,request.getContextPath()+"u/login");
+        } else {
+            result(Constants.SUCCESS_CODE,Constants.SUCCESS_MSG,null);
+        }
+        return result;
     }
 }
