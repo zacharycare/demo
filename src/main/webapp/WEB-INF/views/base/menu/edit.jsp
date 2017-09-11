@@ -24,7 +24,15 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form id="form">
+            <div class="form-group row">
+                <label for="pid" class="col-form-label col-3">菜单名称</label>
+                <div class="col-9">
+                    <select class="form-control" id="pid" name="pid">
+                        <option value="0">根菜单</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="name" class="col-form-label col-3">菜单名称</label>
                 <div class="col-9">
@@ -52,7 +60,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-3"></label>
                 <div class="col-9">
-                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="submit" class="btn btn-primary" id="saveMenu">保存</button>
                     <button type="reset" class="btn btn-default">重置</button>
                 </div>
             </div>
@@ -63,5 +71,24 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#saveMenu").click(function(event){
+            $.ajax({
+                url : 'manage/menu/save',
+                type : 'post',
+                data : $("#form").serialize(),
+                dataType : 'json',
+                success : function(data){
+                    alert(data.msg);
+                },
+                error : function(data){
+                    alert("请求异常");
+                }
+            });
+            event.preventDefault();
+        });
+    })
+</script>
 </body>
 </html>
