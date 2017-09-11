@@ -23,44 +23,44 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
 </head>
 <body>
-这是编辑菜单页1<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页2<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页3<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页4<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页5<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页6<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页7<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页8<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页9<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页10<button class="btn btn-danger">点击</button><br>
-<div class="visible">visible</div>
-<div class="invisible">invisible</div>
-这是编辑菜单页11<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页12<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页13<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页14<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页15<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页16<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页17<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页18<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页19<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页20<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页21<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页22<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页23<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页24<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页25<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页26<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页27<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页28<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页29<button class="btn btn-danger">点击</button><br>
-这是编辑菜单页30<button class="btn btn-danger">点击</button><br>
-<div class="d-none d-lg-block">
-    试一下class
-</div>
+    <div class="container">
+        <form>
+            <div class="form-group row">
+                <label for="name" class="col-form-label col-3">菜单名称</label>
+                <div class="col-9">
+                    <input class="form-control" id="name" name="name" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="url" class="col-form-label col-3">指向URL</label>
+                <div class="col-9">
+                    <input class="form-control" id="url" name="url">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sort" class="col-form-label col-3">菜单排序</label>
+                <div class="col-9">
+                    <input type="number" class="form-control" id="sort" name="sort" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-form-label col-3">菜单描述</label>
+                <div class="col-9">
+                    <input class="form-control" id="description" name="description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-3"></label>
+                <div class="col-9">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>

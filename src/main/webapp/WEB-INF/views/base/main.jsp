@@ -57,7 +57,7 @@
                 </ul>
             </div>
             <!-- 右侧iframe -->
-            <div class="col-12 col-sm-9 col-lg-10 pr-0" id="right">
+            <div class="col-12 col-sm-9 col-lg-10 pr-0 pt-3" id="right">
                 <!-- class="d-block"即display:block 解决iframe height="100%"时body出现滚动条 -->
                 <iframe id="main" src="manage/welcome" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
             </div>
