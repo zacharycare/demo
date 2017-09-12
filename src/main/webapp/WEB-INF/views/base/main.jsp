@@ -52,6 +52,7 @@
             <!-- 左侧菜单栏 -->
             <div class="col-4 col-sm-3 col-lg-2 d-none d-sm-block" id="leftmenu">
                 <ul>
+                    <li><a href="manage/menu/toListPage">菜单管理</a></li>
                     <li><a href="manage/menu/toEditPage">新增菜单</a></li>
                     <li><a href="javascript:void(0);">新增用户</a></li>
                 </ul>
@@ -75,18 +76,18 @@
         if(document.body.clientWidth<576){
             if (leftmenu.is(':hidden')) {     //左侧菜单为隐藏状态
                 leftmenu.attr('class', 'col-4 col-sm-3 col-lg-2');
-                right.attr('class', 'col-8 col-sm-9 col-lg-10 pr-0');
+                right.attr('class', 'col-8 col-sm-9 col-lg-10 pr-0 pt-3');
             } else {
                 leftmenu.attr('class', 'col-4 d-none');
-                right.attr('class', 'col-12 pr-0');
+                right.attr('class', 'col-12 pr-0 pt-3');
             }
         } else {
             if (leftmenu.is(':hidden')) {     //左侧菜单为隐藏状态
                 leftmenu.attr('class', 'col-sm-3 col-lg-2 d-none d-sm-block');
-                right.attr('class', 'col-sm-9 col-lg-10 pr-0');
+                right.attr('class', 'col-sm-9 col-lg-10 pr-0 pt-3');
             } else {
                 leftmenu.attr('class', 'col-sm-3 col-lg-2 d-none');
-                right.attr('class', 'col pr-0');
+                right.attr('class', 'col pr-0 pt-3');
             }
         }
     }
@@ -95,9 +96,6 @@
         $("#leftmenu").find("a").click(function(){
             var href = this.href;
             $.post('isExpire',{},function (data,status) {
-                console.log("验证session过期");
-                console.log(data);
-                console.log(status);
                 if (data.code == "1") {     //过期
                     alert("登录已过期");
                     window.location.href = data.obj;

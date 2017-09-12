@@ -1,5 +1,6 @@
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.nageu.base.bean.Menu;
 import com.nageu.base.bean.User;
 import com.nageu.base.service.MenuService;
@@ -38,12 +39,15 @@ public class Test {
 //        TreeUtil treeUtil = new TreeUtil(list);
 //        System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("3").getChildren()));
 
-        for (int i=0;i<50000;i++){
-            logger.error("error");
-            logger.debug("debug");
-            logger.info("info");
-            logger.trace("trace");
-            logger.warn("warn");
-        }
+        Page<Menu> page = menuService.selectPage(new Page<>());
+        System.out.println("菜单列表："+page);
+
+//        for (int i=0;i<50000;i++){
+//            logger.error("error");
+//            logger.debug("debug");
+//            logger.info("info");
+//            logger.trace("trace");
+//            logger.warn("warn");
+//        }
     }
 }

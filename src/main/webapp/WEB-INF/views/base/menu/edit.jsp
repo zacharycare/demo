@@ -73,7 +73,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#saveMenu").click(function(event){
+        $("#saveMenu").on("submit",function(event){
             $.ajax({
                 url : 'manage/menu/save',
                 type : 'post',
