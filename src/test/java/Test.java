@@ -6,6 +6,8 @@ import com.nageu.base.service.MenuService;
 import com.nageu.base.service.UserService;
 import com.nageu.base.util.TreeUtil;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -15,6 +17,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class Test {
+    private static Logger logger = LoggerFactory.getLogger(Test.class);
     @Autowired
     UserService userService;
     @Autowired
@@ -22,16 +25,25 @@ public class Test {
 
     @org.junit.Test
     public void test(){
-        userService.selectList(new EntityWrapper<User>().eq("username","your name"));
-        System.out.println(userService.selectList(new EntityWrapper<User>().eq("username","admin")));
-        System.out.println("123");
-        User user = new User();
-        user.setUsername("再试一下");
-        user.setPassword("ohh");
-        boolean flag = userService.insert(user);
-        System.out.println("添加用户是否成功："+flag);
-        List<Menu> list = menuService.selectList(null);
-        TreeUtil treeUtil = new TreeUtil(list);
-        System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("3").getChildren()));
+//        userService.selectList(new EntityWrapper<User>().eq("username","your name"));
+//        System.out.println(userService.selectList(new EntityWrapper<User>().eq("username","admin")));
+//        System.out.println("123");
+//        User user = new User();
+//        user.setUsername("再试一下");
+//        user.setPassword("ohh");
+//        boolean flag = userService.insert(user);
+//        System.out.println("添加用户是否成功："+flag);
+
+//        List<Menu> list = menuService.selectList(null);
+//        TreeUtil treeUtil = new TreeUtil(list);
+//        System.out.println("菜单list："+ JSON.toJSONString(treeUtil.generateTreeMenu("3").getChildren()));
+
+        for (int i=0;i<50000;i++){
+            logger.error("error");
+            logger.debug("debug");
+            logger.info("info");
+            logger.trace("trace");
+            logger.warn("warn");
+        }
     }
 }
