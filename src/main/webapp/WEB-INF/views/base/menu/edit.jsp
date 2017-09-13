@@ -60,7 +60,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-3"></label>
                 <div class="col-9">
-                    <button type="submit" class="btn btn-primary" id="saveMenu">保存</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
                     <button type="reset" class="btn btn-default">重置</button>
                 </div>
             </div>
@@ -73,7 +73,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#saveMenu").on("submit",function(event){
+        $("#form").on("submit",function(event){
             $.ajax({
                 url : 'manage/menu/save',
                 type : 'post',
