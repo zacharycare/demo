@@ -36,6 +36,9 @@
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="navbar-collapse collapse" id="navbar-collapse">
             <form class="form-inline">
                 <input class="form-control" type="search" placeholder="search...">
@@ -49,8 +52,15 @@
     <!-- 页面主体，包含左侧菜单和右侧iframe -->
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12 collapse" id="collapse-menu">
+                <ul>
+                    <li><a href="manage/menu/toListPage">菜单管理</a></li>
+                    <li><a href="manage/menu/toEditPage">新增菜单</a></li>
+                    <li><a href="javascript:void(0);">新增用户</a></li>
+                </ul>
+            </div>
             <!-- 左侧菜单栏 -->
-            <div class="col-4 col-sm-3 col-lg-2 d-none d-sm-block" id="leftmenu">
+            <div class="col-4 col-sm-3 col-lg-2 d-none d-sm-block collapse" id="leftmenu">
                 <ul>
                     <li><a href="manage/menu/toListPage">菜单管理</a></li>
                     <li><a href="manage/menu/toEditPage">新增菜单</a></li>
