@@ -22,6 +22,7 @@
     <link rel="shortcut icon" href="custom/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" href="plugins/open-iconic/css/open-iconic-bootstrap.min.css"/>
     <link rel="stylesheet" href="custom/css/manage/main.css">
 </head>
@@ -59,7 +60,7 @@
             </ul>
         </div>
         <!-- 右侧iframe -->
-        <div class="w-100">
+        <div class="w-100 pl-3">
             <iframe id="main" src="manage/welcome" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
         </div>
     </div>
@@ -69,6 +70,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script>
     function SHMenu(){
         var leftmenu = $(".left-menu");
@@ -91,7 +93,7 @@
         if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
             $(".left-menu").toggle();
         }
-    })
+    });
 </script>
 </body>
 </html>
