@@ -61,6 +61,16 @@ public class AuthController extends BaseController {
     }
 
     /**
+     * @apiNote 进入修改密码页面
+     * @return
+     */
+    @RequestMapping(value = "manage/modify-password")
+    public ModelAndView toModifyPasswordPage(){
+        ModelAndView view = new ModelAndView("base/user/modify_password");
+        return view;
+    }
+
+    /**
      * @apiNote 后台用户注销
      * @param request
      * @param response
