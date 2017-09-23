@@ -58,7 +58,8 @@
         <!-- 插件配置 -->
         <property name="plugins">
             <array>
-
+                <!-- 分页插件 -->
+                <bean id="paginationInterceptor" class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"/>
             </array>
         </property>
         <!-- MP 全局配置注入 -->

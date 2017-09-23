@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <title>后台页面布局demo</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/plugins/open-iconic/css/open-iconic-bootstrap.min.css"/>
+    <style>
+        html{height: 100%}
+        body{height: 100%;padding-top: 56px;}
+        .left-menu{width: 200px}
+    </style>
 </head>
 <body>
     <!-- 顶部导航 -->
     <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+        <a class="navbar-brand" href="javascript:SHMenu();">
+            <span class="oi oi-menu"></span>
+        </a>
         <a class="navbar-brand" href="javascript:void(0);">
             zachary
-            <button class="btn btn-default btn-sm align-center">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="navbar-toggler-icon"></span>
@@ -27,9 +33,20 @@
             </div>
         </div>
     </nav>
-<button class="btn btn-primary">click</button>
+
+    <div class="d-flex h-100">
+        <div class="left-menu bg-secondary text-white">左侧菜单</div>
+        <div class="w-100 bg-info text-white">右侧主体</div>
+    </div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+    function SHMenu(){
+        console.log($(".left-menu"));
+        var leftmenu = $(".left-menu");
+        leftmenu.toggle();
+    }
+</script>
 </body>
 </html>

@@ -22,21 +22,19 @@
     <link rel="shortcut icon" href="custom/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/open-iconic/css/open-iconic-bootstrap.min.css"/>
     <link rel="stylesheet" href="custom/css/manage/main.css">
 </head>
 <body>
     <!-- 顶部导航 -->
     <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
+        <a class="navbar-brand" href="javascript:SHMenu();">
+            <span class="oi oi-menu"></span>
+        </a>
         <a class="navbar-brand" href="javascript:void(0);">
             zachary
-            <button class="btn btn-default btn-sm align-center" onclick="SHMenu();">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="navbar-collapse">
@@ -49,31 +47,23 @@
             </div>
         </div>
     </nav>
+
     <!-- 页面主体，包含左侧菜单和右侧iframe -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 collapse" id="collapse-menu">
-                <ul>
-                    <li><a href="manage/menu/toListPage">菜单管理</a></li>
-                    <li><a href="manage/menu/toEditPage">新增菜单</a></li>
-                    <li><a href="javascript:void(0);">新增用户</a></li>
-                </ul>
-            </div>
-            <!-- 左侧菜单栏 -->
-            <div class="col-4 col-sm-3 col-lg-2 d-none d-sm-block collapse" id="leftmenu">
-                <ul>
-                    <li><a href="manage/menu/toListPage">菜单管理</a></li>
-                    <li><a href="manage/menu/toEditPage">新增菜单</a></li>
-                    <li><a href="javascript:void(0);">新增用户</a></li>
-                </ul>
-            </div>
-            <!-- 右侧iframe -->
-            <div class="col-12 col-sm-9 col-lg-10 pr-0 pt-3" id="right">
-                <!-- class="d-block"即display:block 解决iframe height="100%"时body出现滚动条 -->
-                <iframe id="main" src="manage/welcome" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
-            </div>
+    <div class="d-flex h-100">
+        <!-- 左侧菜单栏 -->
+        <div class="left-menu" id="leftmenu">
+            <ul>
+                <li><a href="manage/menu/toListPage">菜单管理</a></li>
+                <li><a href="manage/menu/toEditPage">新增菜单</a></li>
+                <li><a href="javascript:void(0);">新增用户</a></li>
+            </ul>
+        </div>
+        <!-- 右侧iframe -->
+        <div class="w-100">
+            <iframe id="main" src="manage/welcome" width="100%" height="100%" frameborder="0" class="d-block"></iframe>
         </div>
     </div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -81,25 +71,8 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script>
     function SHMenu(){
-        var leftmenu = $("#leftmenu");
-        var right = $("#right");
-        if(document.body.clientWidth<576){
-            if (leftmenu.is(':hidden')) {     //左侧菜单为隐藏状态
-                leftmenu.attr('class', 'col-4 col-sm-3 col-lg-2');
-                right.attr('class', 'col-8 col-sm-9 col-lg-10 pr-0 pt-3');
-            } else {
-                leftmenu.attr('class', 'col-4 d-none');
-                right.attr('class', 'col-12 pr-0 pt-3');
-            }
-        } else {
-            if (leftmenu.is(':hidden')) {     //左侧菜单为隐藏状态
-                leftmenu.attr('class', 'col-sm-3 col-lg-2 d-none d-sm-block');
-                right.attr('class', 'col-sm-9 col-lg-10 pr-0 pt-3');
-            } else {
-                leftmenu.attr('class', 'col-sm-3 col-lg-2 d-none');
-                right.attr('class', 'col pr-0 pt-3');
-            }
-        }
+        var leftmenu = $(".left-menu");
+        leftmenu.toggle();
     }
 
     $(document).ready(function(){
@@ -114,7 +87,10 @@
                 }
             },'json');
             return false;
-        })
+        });
+        if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+            $(".left-menu").toggle();
+        }
     })
 </script>
 </body>
