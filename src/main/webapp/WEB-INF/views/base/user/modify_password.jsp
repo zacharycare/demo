@@ -53,7 +53,17 @@
                             data : $("#modify").serialize(),
                             dataType : 'json',
                             success :function(data){
-                                $.alert(data.msg,"tip");
+                                $.alert({
+                                    title : 'tip',
+                                    content : data.msg,
+                                    buttons : {
+                                        ok : function(){
+                                            if (data.code == 0){
+                                                window.location.href = "manage/logout";
+                                            }
+                                        }
+                                    }
+                                })
                             },
                             error : function(e){
                                 $.alert("请求异常","tip");
@@ -61,7 +71,7 @@
                         })
                     },
                     取消 : function(){
-                        alert(222);
+
                     }
                 }
             })
