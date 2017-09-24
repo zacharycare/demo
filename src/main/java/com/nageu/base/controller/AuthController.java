@@ -6,10 +6,11 @@ import com.nageu.base.bean.User;
 import com.nageu.base.service.UserService;
 import com.nageu.base.util.Constants;
 import com.nageu.base.util.MD5;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +38,7 @@ public class AuthController extends BaseController {
             } else if (!"1".equals(user.getState())){
                 view.addObject("msg","您的账户异常");
             } else {    //登录
-                session.setAttribute("SUS",user);
+                session.setAttribute(Constants.SessionName,user);
                 System.out.println("session id : "+session.getId());
                 if ("remember-me".equals(remember)){
                     Cookie cookie = new Cookie("nc",account);
@@ -64,10 +65,38 @@ public class AuthController extends BaseController {
      * @apiNote 进入修改密码页面
      * @return
      */
-    @RequestMapping(value = "manage/modify-password")
+    @RequestMapping(value = "manage/to-modify-password")
     public ModelAndView toModifyPasswordPage(){
         ModelAndView view = new ModelAndView("base/user/modify_password");
         return view;
+    }
+
+    /**
+     * @apiNote 修改密码
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "manage/modify-password")
+    public Result modifyPassword(HttpServletRequest request, String old, @RequestParam(value = "new") String newpw, String confirm){
+        System.out.println("原密码："+old+",新密码："+newpw+"，确认："+confirm);
+        org.apache.commons.lang3.StringUtils.isNotBlank(confirm);
+
+        User session = (User) request.getSession().getAttribute(Constants.SessionName);
+        User user = userService.selectById(session.getId());
+        if (!user.getPassword().equalsIgnoreCase(MD5.getMD5(old))){
+            result("1001","原密码错误",null);
+            return result;
+        }
+
+        if (StringUtils.isNotBlank(newpw) && StringUtils.isNotBlank(confirm) && newpw.equals(confirm)){
+            user.setPassword(MD5.getMD5(newpw));
+            userService.updateById(user);
+            resultSuccess(null);
+        } else {
+            result("1001","新密码不一致",null);
+        }
+
+        return result;
     }
 
     /**
@@ -99,7 +128,7 @@ public class AuthController extends BaseController {
     @RequestMapping(value = "isExpire")
     @ResponseBody
     public Result sessionExpire(HttpServletRequest request){
-        Object object = request.getSession().getAttribute("SUS");
+        Object object = request.getSession().getAttribute(Constants.SessionName);
         if (object == null){    //过期
             result(Constants.FAILURE_CODE,Constants.FAILURE_MSG,request.getContextPath()+"u/login");
         } else {

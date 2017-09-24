@@ -8,6 +8,7 @@ import com.nageu.base.service.UserService;
 import com.nageu.base.util.TreeUtil;
 import com.nageu.custom.bean.Tech;
 import com.nageu.custom.service.TechService;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,14 +68,24 @@ public class Test {
 //        teches.add(tech2);
 //        boolean flag = techService.insertOrUpdateBatch(teches);
 //        System.out.println("success?:"+flag);
-        teches = techService.selectList(null);
-        Tech tech = new Tech();
-        tech.setId(1223);
-        tech.setTitle("title4");
-        tech.setContent("content4");
-        teches.add(tech);
-        boolean flag = techService.insertOrUpdateBatch(teches);
-        System.out.println("success?:"+flag);
-        System.out.println("list is:"+teches);
+//        teches = techService.selectList(null);
+//        Tech tech = new Tech();
+//        tech.setId(1223);
+//        tech.setTitle("title4");
+//        tech.setContent("content4");
+//        teches.add(tech);
+//        boolean flag = techService.insertOrUpdateBatch(teches);
+//        System.out.println("success?:"+flag);
+//        System.out.println("list is:"+teches);
+
+        String a = " ";
+        String b = null;
+        String c = "a";
+        System.out.println(StringUtils.isNotBlank(a));
+        System.out.println(StringUtils.isNotEmpty(a));
+        System.out.println(StringUtils.isNotBlank(b));
+        System.out.println(StringUtils.isNotEmpty(b));
+        System.out.println(StringUtils.isNotBlank(c));
+        System.out.println(StringUtils.isNotEmpty(c));
     }
 }

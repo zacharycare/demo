@@ -28,7 +28,7 @@
             <input name="new" class="form-control" required>
             确认：
             <input name="confirm" class="form-control" required>
-            <div class="float-right pt-2">
+            <div class="float-right py-2">
                 <input type="button" class="btn btn-primary" value="修改" onclick="mp()">
             </div>
         </form>
@@ -44,7 +44,26 @@
         function mp(){
             $.confirm({
                 title : 'tip',
-                content : '确认修改？'
+                content : '确认修改？',
+                buttons : {
+                    确认 : function(){
+                        $.ajax({
+                            url : 'manage/modify-password',
+                            type : 'post',
+                            data : $("#modify").serialize(),
+                            dataType : 'json',
+                            success :function(data){
+                                $.alert(data.msg,"tip");
+                            },
+                            error : function(e){
+                                $.alert("请求异常","tip");
+                            }
+                        })
+                    },
+                    取消 : function(){
+                        alert(222);
+                    }
+                }
             })
         }
     </script>

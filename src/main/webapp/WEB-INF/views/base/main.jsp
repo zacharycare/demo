@@ -98,7 +98,7 @@
     function modyfypassword(){
         $.dialog({
             title : '修改密码',
-            content : 'url:manage/modify-password',
+            content : 'url:manage/to-modify-password',
             closeIcon : false,
             backgroundDismiss: true
         });
