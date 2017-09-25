@@ -1,5 +1,6 @@
 package com.nageu.base.interceptor;
 
+import com.nageu.base.util.Constants;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,7 +11,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         System.out.println(httpServletRequest.getServletPath());
-        Object user = httpServletRequest.getSession().getAttribute("SUS");
+        Object user = httpServletRequest.getSession().getAttribute(Constants.SessionName);
         if (user == null){
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/u/login");
             return false;

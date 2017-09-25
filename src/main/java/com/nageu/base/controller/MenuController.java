@@ -72,7 +72,7 @@ public class MenuController extends BaseController {
         if (parentMenu != null){
             menu.setLevel(parentMenu.getLevel() + 1);
         }
-        menu.setCreate_id(((User)request.getSession().getAttribute("SUS")).getId());
+        menu.setCreate_id(((User)request.getSession().getAttribute(Constants.SessionName)).getId());
         boolean flag = menuService.insert(menu);
         if (flag){
             result(Constants.SUCCESS_CODE,Constants.SUCCESS_MSG,null);
