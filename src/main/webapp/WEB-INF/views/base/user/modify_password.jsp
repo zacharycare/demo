@@ -41,6 +41,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script>
+        //修改密码
         function mp(){
             $.confirm({
                 title : 'tip',

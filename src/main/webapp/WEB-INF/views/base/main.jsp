@@ -95,7 +95,8 @@
         }
     });
 
-    function modyfypassword(){
+    //点击修改密码
+    function modifypassword(){
         $.dialog({
             title : '修改密码',
             content : 'url:manage/to-modify-password',
