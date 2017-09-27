@@ -43,7 +43,7 @@
                 <input class="form-control" type="search" placeholder="search...">
             </form>
             <div class="navbar-nav ml-auto">
-                <a class="navbar-item nav-link" href="javascript:modyfypassword();">修改密码</a>
+                <a class="navbar-item nav-link" href="javascript:modifypassword();">修改密码</a>
                 <a class="navbar-item nav-link" href="manage/logout">注销</a>
             </div>
         </div>
