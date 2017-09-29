@@ -21,7 +21,7 @@
     <title>登录</title>
     <link rel="shortcut icon" href="custom/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="custom/css/manage/login.css">
 </head>
 <body>
@@ -41,8 +41,8 @@
     </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper.min.js"></script>
+<script src="plugins/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

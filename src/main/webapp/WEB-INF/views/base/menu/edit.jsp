@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <title>编辑菜单</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css"/>
 </head>
 <body>
     <div class="container">
@@ -68,9 +68,9 @@
     </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper.min.js"></script>
+<script src="plugins/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function(){
         $("#form").on("submit",function(event){
@@ -82,7 +82,7 @@
                 success : function(data){
                     alert(data.msg);
                 },
-                error : function(data){
+                error : function(){
                     alert("请求异常");
                 }
             });

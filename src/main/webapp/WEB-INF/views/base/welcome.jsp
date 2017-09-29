@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <title>管理平台欢迎页</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css"/>
 </head>
 <body>
     <h5>这是欢迎页面</h5><br>
@@ -65,8 +65,8 @@
     <h5>这是欢迎页面111</h5><br>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper.min.js"></script>
+<script src="plugins/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

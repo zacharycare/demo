@@ -21,8 +21,8 @@
     <title>管理平台</title>
     <link rel="shortcut icon" href="custom/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/jquery-confirm-3.3.0/jquery-confirm.min.css">
     <link rel="stylesheet" href="plugins/open-iconic/css/open-iconic-bootstrap.min.css"/>
     <link rel="stylesheet" href="custom/css/manage/main.css">
 </head>
@@ -67,10 +67,10 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="plugins/jquery-3.2.1.min.js"></script>
+<script src="plugins/popper.min.js"></script>
+<script src="plugins/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-confirm-3.3.0/jquery-confirm.min.js"></script>
 <script>
     function SHMenu(){
         var leftmenu = $(".left-menu");
