@@ -79,4 +79,8 @@
     <session-config>
         <session-timeout>15</session-timeout>
     </session-config>
+    
+    <error-page>
+        <location>/WEB-INF/views/base/error/error.jsp</location>
+    </error-page>
 </web-app>
